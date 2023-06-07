@@ -26,7 +26,7 @@ RUN export PATH="/root/.local/bin:$PATH" && \
 
 
 # Expose the port
-EXPOSE 3000
+EXPOSE 8000
 
 # Set the entrypoint
 ENTRYPOINT ["python", "manage.py","runserver", "0.0.0.0:8000"]
