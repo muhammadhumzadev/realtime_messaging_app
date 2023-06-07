@@ -18,6 +18,7 @@ RUN pip3 install -r requirements.txt
 
 #copy migrations
 RUN export PATH="/root/.local/bin:$PATH" && \
+    python manage.py makemigrations
     python manage.py migrate
 RUN export PATH="/root/.local/bin:$PATH" && \
     python manage.py collectstatic --noinput
