@@ -8,13 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install any needed packages specified in requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
-
-RUN apt-get update && apt-get install -y ffmpeg
-
-RUN pip install -U openai-whisper
-
-RUN pip install faster-whisper
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 # Make port 8000 available to the world outside this container
 EXPOSE 8000
