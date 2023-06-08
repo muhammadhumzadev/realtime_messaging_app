@@ -22,6 +22,16 @@ steps:
     volumes:
       - 'name:workspace, path:/workspace'
   
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/muhammadhumzadev/realtime_messaging_app.git', 'repo']
+    dir: 'repo'
+  
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/realTimeMessagingApp', '.']
+  
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/realTimeMessagingApp']
+  
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'container'
@@ -31,21 +41,7 @@ steps:
       - '--quiet'
     waitFor:
       - check-existing-image
-
-  # Step 1: Clone the repository
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/muhammadhumzadev/realtime_messaging_app.git', 'repo']
-    dir: 'repo'
-
-  # Step 2: Build the Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/realTimeMessagingApp', '.']
   
-  # Step 3: Push the Docker image to Container Registry
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/realTimeMessagingApp']
-  
-  # Step 4: Deploy the Docker image to Cloud Run
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
