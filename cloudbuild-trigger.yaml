@@ -1,0 +1,7 @@
+triggerTemplate:
+  repoName: muhammadhumzadev/realtime_messaging_app
+  branchName: main
+
+build:
+  config:
+    filename: cloudbuild.yaml
