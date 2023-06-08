@@ -15,13 +15,19 @@ steps:
       - '--filter=tags=latest'
       - '--format=value(digest)'
     id: check-existing-image
+    entrypoint: 'bash'
+    dir: 'workspace'
+    env:
+      - 'ID_FILE=/workspace/image_digest'
+    volumes:
+      - 'name:workspace, path:/workspace'
   
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'container'
       - 'images'
       - 'delete'
-      - 'gcr.io/$PROJECT_ID/realTimeMessagingApp@$(cat $ID_FILE)'
+      - 'gcr.io/$PROJECT_ID/realTimeMessagingApp@$(cat /workspace/image_digest)'
       - '--quiet'
     waitFor:
       - check-existing-image
