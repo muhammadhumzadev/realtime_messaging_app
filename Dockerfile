@@ -2,10 +2,10 @@
 FROM python:3.10-slim-buster
 
 # Set the working directory in the container
-WORKDIR /app
+WORKDIR /chat
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+COPY . /chat
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --no-cache-dir -r requirements.txt
