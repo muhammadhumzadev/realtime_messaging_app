@@ -1,5 +1,5 @@
 steps:
-  # Step 0: Clear existing files
+  # Step 0: Clear existing image
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'auth'
@@ -10,27 +10,27 @@ steps:
     args:
       - 'container'
       - 'images'
-      - 'list'
-      - '--filter="name=gcr.io/$PROJECT_ID/realTimeMessagingApp"'
-    id: check-existing-images
+      - 'list-tags'
+      - 'gcr.io/$PROJECT_ID/realTimeMessagingApp'
+      - '--filter=tags=latest'
+      - '--format=value(digest)'
+    id: check-existing-image
   
-  # If the image already exists, delete it
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'container'
       - 'images'
       - 'delete'
-      - 'gcr.io/$PROJECT_ID/realTimeMessagingApp'
-      - '--force-delete-tags'
+      - 'gcr.io/$PROJECT_ID/realTimeMessagingApp@$(cat $ID_FILE)'
       - '--quiet'
     waitFor:
-      - check-existing-images
+      - check-existing-image
 
   # Step 1: Clone the repository
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://github.com/muhammadhumzadev/realtime_messaging_app.git', 'repo']
     dir: 'repo'
-    
+
   # Step 2: Build the Docker image
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/realTimeMessagingApp', '.']
