@@ -1,8 +1,8 @@
-trigger:
-  name: "RealTimeMessagingAppTrigger"
-  description: "Trigger for Real-Time Messaging App"
-  github:
-    owner: "muhammadhumzadev"
-    name: "realtime_messaging_app"
-  build:
-    config: "cloudbuild.yaml"
+triggerTemplate:
+  branchName:
+    regex: ".*"
+  repoName: "muhammadhumzadev/realtime_messaging_app"
+  projectId: "abstract-bongo-386611"
+  substitutions:
+    _REGION: "us-central1"
+    _IMAGE_NAME: "realTimeMessagingApp"
