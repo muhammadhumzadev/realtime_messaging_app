@@ -37,34 +37,13 @@ Access the app in your browser at http://localhost:8000.
 ## Deployment on Google Cloud Platform
 To deploy the app on GCP using Google Cloud Build for automatic deployment, follow these steps:
 
-Set up a GCP project and enable the necessary APIs (e.g., Compute Engine, Container Registry).
+Set up a GCP project and enable the necessary APIs 
+1- Compute Engine
+2- Container Registry.
 
-Create a Dockerfile in the project's root directory with the following content:
+For deployment I need the *Dockerfile*. Dockerfile is in the root directory.
 
-Dockerfile
-Copy code
-FROM python:3
-
-WORKDIR /app
-
-COPY requirements.txt .
-RUN pip3 install --no-cache-dir -r requirements.txt
-
-COPY . .
-
-CMD ["python3", "manage.py", "runserver", "0.0.0.0:8000"]
-Create a cloudbuild.yaml file in the project's root directory with the following content:
-
-yaml
-Copy code
-steps:
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["build", "-t", "gcr.io/<project_id>/<image_name>:<tag>", "."]
-  - name: "gcr.io/cloud-builders/docker"
-    args: ["push", "gcr.io/<project_id>/<image_name>:<tag>"]
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["run", "deploy", "<service_name>", "--image", "gcr.io/<project_id>/<image_name>:<tag>", "--platform", "managed", "--region", "<region>"]
-Replace <project_id>, <image_name>, <tag>, <service_name>, and <region> with the appropriate values.
+I already create a **cloudbuild.yaml** file and **cloudbuild-trigger.yaml** in the project's root directory.
 
 Configure the GitHub repository to trigger a Cloud Build when changes are committed:
 
@@ -79,9 +58,7 @@ Once the app is running locally or deployed on GCP, follow these steps to use th
 
 Sign up for an account or log in if you already have one.
 
-Add friends by searching for their usernames or email addresses.
-
-Start a conversation with a friend by selecting their name from the friend list.
+Start a conversation with a friends by selecting on of the rooms.
 
 Type your messages in the input field at the bottom of the chat window and press Enter to send them.
 
