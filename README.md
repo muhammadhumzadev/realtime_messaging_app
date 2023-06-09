@@ -1,10 +1,15 @@
-#Introduction
-This documentation provides an overview of a messaging app built using Django, along with instructions for setting up and deploying the app on Google Cloud Platform (GCP). The app allows users to add friends and chat with them in real-time.
+# Django Messaging App
 
-Prerequisites
-Python 3.x
-Django
-Channels
+## Introduction
+This is a messaging app built using Django, which allows users to add friends and chat with them. The app is designed to be deployed on Google Cloud Platform (GCP) using Google Cloud Build for automatic deployment.
+
+## Prerequisites
+- Python 3.x
+- Django
+- Channels
+
+## Installation
+1. Install Django Channels by running the following command:
 Installation
 Install Django Channels by running the following command:
 Copy code
