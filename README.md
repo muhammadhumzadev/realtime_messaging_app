@@ -13,7 +13,7 @@ This is a messaging app built using Django, which allows users to add friends an
 
 `pip3 install django channels`
 
-Local Development
+## Local Development
 To run the app locally, follow these steps:
 
 Clone the repository from GitHub:
