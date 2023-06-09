@@ -23,14 +23,16 @@ Change to the project directory:
 `cd realtime_messaging_app`
 
 Apply migrations to set up the database:
+
 `python3 manage.py migrate`
 
 Start the Django development server:
+
 `python3 manage.py runserver`
 
 Access the app in your browser at http://localhost:8000.
 
-Deployment on Google Cloud Platform
+## Deployment on Google Cloud Platform
 To deploy the app on GCP using Google Cloud Build for automatic deployment, follow these steps:
 
 Set up a GCP project and enable the necessary APIs (e.g., Compute Engine, Container Registry).
