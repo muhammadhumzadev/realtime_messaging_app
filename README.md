@@ -53,7 +53,7 @@ Click "Connect Repository" and select your GitHub repository.
 Configure the trigger settings according to your requirements.
 Push your code changes to the GitHub repository, and Cloud Build will automatically build and deploy the Docker image to GCP.
 
-Usage
+## Usage
 Once the app is running locally or deployed on GCP, follow these steps to use the messaging app:
 
 Sign up for an account or log in if you already have one.
