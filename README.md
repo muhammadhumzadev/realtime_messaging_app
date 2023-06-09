@@ -11,7 +11,13 @@ This is a messaging app built using Django, which allows users to add friends an
 ## Installation
 1. Install Django by running the following command:
 
-`pip3 install django channels`
+### For ubuntu
+
+`pip3 install -r requirements.txt`
+
+### For windows
+
+`pip install -r requirements.txt`
 
 ## Local Development
 To run the app locally, follow these steps:
@@ -19,6 +25,8 @@ To run the app locally, follow these steps:
 Clone the repository from GitHub:
 
 `git clone https://github.com/muhammadhumzadev/realtime_messaging_app.git`
+
+### For Ubuntu
 
 Change to the project directory:
 
@@ -31,6 +39,19 @@ Apply migrations to set up the database:
 Start the Django development server:
 
 `python3 manage.py runserver`
+
+### For windows
+
+
+Change to the project directory.
+
+Apply migrations to set up the database:
+
+`python manage.py migrate`
+
+Start the Django development server:
+
+`pythony manage.py runserver`
 
 Access the app in your browser at http://localhost:8000.
 
