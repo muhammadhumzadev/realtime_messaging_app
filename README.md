@@ -9,11 +9,10 @@ This is a messaging app built using Django, which allows users to add friends an
 - Channels
 
 ## Installation
-1. Install Django Channels by running the following command:
-Installation
-Install Django Channels by running the following command:
+1. Install Django by running the following command:
+
 Copy code
-pip3 install django channels
+`pip3 install django channels`
 Local Development
 To run the app locally, follow these steps:
 
