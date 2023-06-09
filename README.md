@@ -17,9 +17,11 @@ This is a messaging app built using Django, which allows users to add friends an
 To run the app locally, follow these steps:
 
 Clone the repository from GitHub:
+
 `git clone https://github.com/muhammadhumzadev/realtime_messaging_app.git`
 
 Change to the project directory:
+
 `cd realtime_messaging_app`
 
 Apply migrations to set up the database:
