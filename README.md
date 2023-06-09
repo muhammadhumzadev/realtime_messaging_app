@@ -1,4 +1,4 @@
-Introduction
+#H1 Introduction
 This documentation provides an overview of a messaging app built using Django, along with instructions for setting up and deploying the app on Google Cloud Platform (GCP). The app allows users to add friends and chat with them in real-time.
 
 Prerequisites
