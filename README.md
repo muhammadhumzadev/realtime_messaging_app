@@ -1,4 +1,4 @@
-# Django Messaging App
+# Messaging App
 
 ## Introduction
 This is a messaging app built using Django, which allows users to add friends and chat with them. The app is designed to be deployed on Google Cloud Platform (GCP) using Google Cloud Build for automatic deployment.
